@@ -1,0 +1,62 @@
+[
+  {
+    "id": "yathin",
+    "url": "https://yathin-horizon-portfolio.vercel.app",
+    "status": 200,
+    "title": "Yathin Kumar - AI & Software Developer Portfolio",
+    "desktop": {
+      "scroll": 900,
+      "canvas": 1
+    },
+    "mobile": {
+      "width": 390,
+      "docWidth": 390
+    }
+  },
+  {
+    "id": "basement",
+    "url": "https://scrollytelling.basement.studio/",
+    "status": 200,
+    "title": "BSMNT @ Scrollytelling",
+    "desktop": {
+      "scroll": 900,
+      "canvas": 3
+    },
+    "mobile": {
+      "width": 390,
+      "docWidth": 390
+    }
+  },
+  {
+    "id": "trust",
+    "url": "https://ncase.me/trust/",
+    "status": 200,
+    "title": "The Evolution of Trust",
+    "desktop": {
+      "scroll": 0,
+      "canvas": 1
+    },
+    "mobile": {
+      "width": 390,
+      "docWidth": 390
+    }
+  },
+  {
+    "id": "google",
+    "url": "https://google.github.io/scrollytell/",
+    "status": 200,
+    "title": "scrollytell | tiny mobile-friendly scrollytelling library",
+    "desktop": {
+      "scroll": 900,
+      "canvas": 0
+    },
+    "mobile": {
+      "width": 390,
+      "docWidth": 390
+    }
+  },
+  {
+    "id": "ali-interaction",
+    "action": "Clicked Start Exploring, held Right, pressed Enter"
+  }
+]

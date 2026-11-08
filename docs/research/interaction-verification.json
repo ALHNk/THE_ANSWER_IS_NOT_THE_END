@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-08",
+  "followUpObservations": [
+    {"reference":"Ali Taee","action":"Start Exploring, ArrowDown held 1.5 seconds","observedResult":"First Steps trophy appeared; screenshot captured. Full object discovery not certified."},
+    {"reference":"The Evolution of Trust","action":"Clicked PLAY at its overlapping hitbox","observedResult":"Introductory narrative and next-step control appeared; trust-play.png captures the changed state."},
+    {"reference":"LOOPY","action":"Attempted embedded frame interaction","observedResult":"Frame body not visible to automation; no claim of successful click. Source and parent narrative inspected."}
+  ]
+}
