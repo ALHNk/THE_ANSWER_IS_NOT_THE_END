@@ -203,6 +203,9 @@ export default function Story() {
             {reduced ? "Motion off" : "Skip animation"}
           </button>
           <a href="./poster.html">Poster ↗</a>
+          <a href="#downloads" className="header-downloads">
+            PDFs ↓
+          </a>
           <button ref={qaButton} onClick={() => dialog.current?.showModal()}>
             Q&A <span aria-hidden="true">＋</span>
           </button>
@@ -336,6 +339,29 @@ export default function Story() {
                 distribution. No public hosting was configured.
               </p>
             </details>
+            <div id="downloads" className="downloads no-print">
+              <h3>Downloads</h3>
+              <p className="small">
+                Both files are PDFs. The poster is rendered from the static
+                poster page on every deployment.
+              </p>
+              <div className="downloads-row">
+                {__ESSAY_PDF__ && (
+                  <a
+                    className="download-button"
+                    href={"./" + __ESSAY_PDF__}
+                    download
+                  >
+                    <span>Group critical analysis essay</span>
+                    <small>PDF ↓</small>
+                  </a>
+                )}
+                <a className="download-button" href="./poster.pdf" download>
+                  <span>Academic poster (594 × 420 mm)</span>
+                  <small>PDF ↓</small>
+                </a>
+              </div>
+            </div>
             <a className="text-button no-print" href="./credits.html">
               Asset credits & implementation disclosure ↗
             </a>

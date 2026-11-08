@@ -36,13 +36,11 @@ test("seven chapters, five distinct authors, truthful survey and no runtime erro
     [7, "59.1", "2.77"],
     [10, "77.3", "4.09"],
   ] as const) {
-    const row = page
-      .getByRole("row")
-      .filter({
-        has: page.getByRole("rowheader", {
-          name: new RegExp("^" + item + "\\."),
-        }),
-      });
+    const row = page.getByRole("row").filter({
+      has: page.getByRole("rowheader", {
+        name: new RegExp("^" + item + "\\."),
+      }),
+    });
     await expect(row).toContainText(value);
     await expect(row).toContainText(mean);
   }
@@ -291,4 +289,32 @@ test("static poster has seven sections without JavaScript and credits are reacha
     page.getByRole("heading", { name: "AI disclosure", exact: true }),
   ).toBeVisible();
   await context.close();
+});
+
+test("balance game can be played to a result, and PDF downloads are offered", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("/");
+  await expect(page.locator("main > section")).toHaveCount(7);
+  await page.getByRole("button", { name: /Start round 1/ }).click();
+  for (let round = 0; round < 5; round++) {
+    await page.locator(".g-options button").first().click();
+    await expect(page.getByText("WHAT COULD FAIL")).toBeVisible();
+    await page
+      .getByRole("button", { name: /Next situation|See your course/ })
+      .click();
+  }
+  await expect(page.getByRole("button", { name: /Play again/ })).toBeVisible();
+  await expect(page.locator(".g-recap li")).toHaveCount(5);
+  await page.getByRole("button", { name: /Play again/ }).click();
+  await expect(page.getByText(/ROUND 1 \/ 5/)).toBeVisible();
+
+  const poster = page.locator('.download-button[href$="poster.pdf"]');
+  await expect(poster).toHaveAttribute("download", "");
+  await expect(
+    page.locator('.download-button[href*="essay/"][href$=".pdf"]'),
+  ).toHaveCount(1);
+  expect(errors).toEqual([]);
 });

@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "test": "playwright test",
     "poster": "node scripts/export-poster.mjs",
-    "format": "prettier --write src scripts tests *.ts *.js"
+    "format": "prettier --write src scripts tests *.ts *.js",
+    "poster:dist": "node scripts/export-poster.mjs --dist"
   },
   "dependencies": {
     "gsap": "^3.14.0",

@@ -2,6 +2,7 @@ import { narrative } from "../content";
 import { useState } from "react";
 import { evidenceChoices, rubric } from "../content";
 import { SceneHeading, Cite } from "../components";
+import BalanceGame from "./BalanceGame";
 export default function Assessment() {
   const [choice, setChoice] = useState(1);
   const item = evidenceChoices[choice];
@@ -81,6 +82,7 @@ export default function Assessment() {
         explanation. It is a design proposal, not an intervention tested by this
         survey.
       </p>
+      <BalanceGame />
       <div className="rubric-strip">
         <p className="eyebrow">FIVE EQUAL RUBRIC DIMENSIONS · APPENDIX -7</p>
         <div>

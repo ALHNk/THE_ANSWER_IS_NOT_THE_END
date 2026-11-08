@@ -152,6 +152,11 @@ export const presentationSteps: Step[] = [
     button: `.evidence-choices button:nth-child(${i + 1})`,
   })),
   {
+    id: "game",
+    label: "Interactive: balance the course",
+    target: ".game-head",
+  },
+  {
     id: "rubric",
     label: "Five equal rubric dimensions",
     target: ".rubric-strip",

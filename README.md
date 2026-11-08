@@ -32,6 +32,12 @@ Tests use Microsoft Edge on Windows. Elsewhere run `npx playwright install chrom
 
 To regenerate the static poster: `node scripts/generate-poster.mjs`. To export its PDF, start the dev server, then run `npm run poster` in a second terminal. Set `POSTER_ORIGIN` for a different local origin. Browser PDF export uses explicit 594×420mm page dimensions. This is a design choice, not an inferred examination size. Build again after exporting to copy the PDF into dist.
 
+## Downloads, PDFs and the game (GitHub Actions deployment)
+
+- **Essay PDF.** Put the essay PDF in `docs/essay/` (currently `Group_Critical_Analysis_Essay.pdf`). `npm run build` copies the first `*.pdf` in that folder to `dist/essay/`, and the "Downloads" block in the page footer, the header **PDFs ↓** link and the poster toolbar all point to it. If the folder has no PDF, the essay buttons disappear instead of 404-ing.
+- **Poster PDF.** The GitHub Actions workflow installs Chromium after the build and runs `npm run poster:dist`, which renders `dist/poster.html` to `dist/poster.pdf` (594 x 420 mm). The PDF therefore always matches the current poster. If that step fails, the site still deploys with the `public/poster.pdf` fallback. To refresh the fallback locally: `npm run dev`, then `npm run poster`.
+- **Game: "Balance the course".** Lives inside chapter 06 (`src/scenes/BalanceGame.tsx`, data and scoring in `src/game.ts`). Five rounds, one per presenter; each choice trades Structure, Agency, Fairness and Teacher time. It is an illustrative model, not survey data. It is one step in the PgDn/PgUp route ("Interactive: balance the course"); the game itself is hidden from print.
+
 ## Present without clicking
 
 **Page Down / Page Up** move forward/backward through individual story elements. The route switches concept lenses, opens comparisons and all five source dossiers, shows before/after revisions, selects each assessment option, compares the final paper and opens the Q&A one answer at a time. The current element is outlined and its label/count appears at the bottom. The keys stop at the first/last element, without wrapping.
